@@ -52,13 +52,23 @@ module.exports = {
         use: [
           // Compiles Sass to CSS
           'style-loader',
+          'ts-loader',
           'css-loader',
           'sass-loader',
         ],
       },
+      {
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: 'ts-loader'
+          },
+        ],
+        exclude: /node_modules/
+      },
     ],
   },
   resolve: {
-    extensions: ['.js','.jsx','.json'] 
+    extensions: ['.js', '.jsx', '.json']
   }
 };

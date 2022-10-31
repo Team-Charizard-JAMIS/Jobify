@@ -1,12 +1,12 @@
 import React from 'react';
 import MainContainer from './containers/MainContainer';
 
-const App = () => {
+function App() {
   return (
-    <>
-      <h1>Example React App</h1>
-      <MainContainer />
-    </>
+    <div>
+      <div>Example React App </div>
+      < MainContainer />
+    </div>
   );
 };
 

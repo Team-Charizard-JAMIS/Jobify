@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 
-const mapStateToProps = (state) => ({});
 
-class MainContainer extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div>
-        <h2>Examples</h2>
-      </div>
-    );
-  }
+const mainContainer = () => {
+  return(
+  <div>
+    <h2>Examples</h2>
+  </div>
+  )
 }
+// class MainContainer extends Component {
+//   constructor(props) {
+//     super(props);
+//   }
 
-export default connect(mapStateToProps, null)(MainContainer);
+//   render() {
+//     return (
+//       <div>
+//         <h2>Examples</h2>
+//       </div>
+//     );
+//   }
+// }
+
+export default MainContainer;
