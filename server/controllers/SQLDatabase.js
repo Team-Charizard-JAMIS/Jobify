@@ -11,24 +11,27 @@ const queryString = `SELECT user_id, username, password FROM USERS WHERE usernam
 db.query(queryString)
 .then((results => {
     console.log(results);
-    res.locals.userInfo = results;
+    res.locals.userInfo = results.rows;
     return next();
 }))
 .catch((err) => next({log: `jobController.getUsersInformation err: ${JSON.stringify(err)}`, message: 'Error'}))
 }
 
 jobController.getApplications = (req, res, next) => {
-
+const queryString = 'SELECT * FROM Users INNER JOIN Applications ON Users.user_id = Applications.user_id';
 }
 
 jobController.getInterview = (req, res, next) => {
-
+const queryString = 'SELECT * FROM Users INNER JOIN Interviews ON Users.user_id = Interviews.user_id';
 }
 
 jobController.getOffers = (req, res, next) => {
-
+const queryString = 'SELECT * FROM Users INNER JOIN Offers ON Users.user_id = Offers.user_id';
 }
 
+jobController.getAllInfo = (req, res, next) => {
+    const queryString = 'SELECT * FROM Users INNER JOIN Applications ON Users.user_id = Applications.user_id INNER JOIN Interviews ON Users.user_id=Interviews.user_id INNER JOIN Offers ON Users.user_id = Offers.user_id';
+}
 
 jobController.postNewUser = (req, res, next) => {
 const queryString = `INSERT INTO Users(username, password) VALUES(${req.body.username}, ${req.body.password})`
