@@ -36,6 +36,7 @@
     "@types/react-dom": "^18.0.8",
     "express": "^4.18.1",
     "mongoose": "^6.4.7",
+    "pg": "^8.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.2",
