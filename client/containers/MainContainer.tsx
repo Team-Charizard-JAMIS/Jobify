@@ -1,25 +1,19 @@
 import React, { Component } from 'react';
-
+import Application from './../component/application'
+import Interview from './../component/interview'
+import Results from './../component/results'
 
 const MainContainer = () => {
-  return(
-  <div>
-    <h2>Examples</h2>
-  </div>
+  return (
+    <div>
+      <h2>Dashboard</h2>
+
+      <Application />
+      <Interview />
+      <Results />
+
+    </div>
   )
 }
-// class MainContainer extends Component {
-//   constructor(props) {
-//     super(props);
-//   }
-
-//   render() {
-//     return (
-//       <div>
-//         <h2>Examples</h2>
-//       </div>
-//     );
-//   }
-// }
 
 export default MainContainer;
