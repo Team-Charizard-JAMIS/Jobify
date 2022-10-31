@@ -23,7 +23,7 @@ const Interview = () => {
             <h2>Interviews</h2>
             {
                 interviewInformation.map((ele, i) => {
-                    <Card key='Key ' i >
+                    <Card>
                         Company Name: {ele.companyName}
                     </Card>
                 })
