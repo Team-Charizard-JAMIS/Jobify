@@ -1,5 +1,5 @@
 import * as React from "react";
-import { App } from '../Types/applicationTypes';
+import { App } from '../../Types/applicationTypes';
 import { Button } from '@mui/material';
 
 type AppBoxProps = {

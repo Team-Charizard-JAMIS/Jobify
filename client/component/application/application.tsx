@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Button } from '@mui/material';
 import ApplicationBox from './applicationbox';
-import { App } from '../Types/applicationTypes';
-import '../styles/applicationStyles.css';
+import { App } from '../../Types/applicationTypes';
+import './applicationStyles.css';
 
 interface ApplicationProps {
     applications: Array<App>,
