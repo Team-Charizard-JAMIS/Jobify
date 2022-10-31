@@ -1,0 +1,4 @@
+.applicationsTable {
+    display: flex;
+    flex-direction: row;
+}

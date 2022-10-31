@@ -1,15 +1,23 @@
 import * as React from "react";
+import { App } from '../Types/applicationTypes';
+import { Button } from '@mui/material';
 
-interface AppBoxProps {
-    app: object,
+type AppBoxProps = {
+    app: App,
     key: string
+    interviewed: (appID: number) => void
 }
 
 const ApplicationBox = (props: AppBoxProps) => {
-    const app = props.app;
+    const name = props.app.appName;
+    const date = props.app.appDate;
+    const addInterview = props.interviewed;
+
     return ( 
-        <div>
-            hello
+        <div className='applicationsTable'>
+            <div>{date}</div>
+            <div>{name}</div>
+            <div><Button onClick={() => addInterview(props.app.id)}> + </Button></div>
         </div>
      );
 }
