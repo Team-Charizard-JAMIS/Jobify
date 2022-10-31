@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 console.log('NODE_ENV: ', process.env.NODE_ENV)
 
 module.exports = {
-  entry: './client/index.js',
+  entry: './client/index.tsx',
 
   output: {
     path: path.resolve(__dirname, './build/'),
@@ -69,6 +69,6 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json']
+    extensions: ['*', '.ts', '.tsx', '.js', '.jsx', '.json']
   }
 };

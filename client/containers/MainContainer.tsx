@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-const mainContainer = () => {
+const MainContainer = () => {
   return(
   <div>
     <h2>Examples</h2>
