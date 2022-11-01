@@ -6,6 +6,7 @@ import { App } from '../Types/applicationTypes';
 import { InterviewType } from '../Types/interviewTypes';
 import { OfferType } from '../Types/offerTypes';
 import ApplicationForm from '../component/ApplicationForm/ApplicationForm'
+import {LogIn} from './LogIn'
 
 const MainContainer = () => {
   const [apps, setApps] = useState<Array<App>>([
@@ -72,6 +73,7 @@ const MainContainer = () => {
   return (
     <div>
       <h2>Dashboard</h2>
+      <LogIn />
       <ApplicationForm />
       <Application applications={apps} interviewed={interviewed} />
       <Interview interviews={interviews} offered={offered} />
