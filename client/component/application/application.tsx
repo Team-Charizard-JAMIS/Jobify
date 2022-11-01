@@ -14,8 +14,9 @@ const Application = (props: ApplicationProps) => {
     const interviewed = props.interviewed;
     const apps = [];
     for (let i = 0; i < applications.length; i++) {
-        apps.push(<ApplicationBox app={applications[i]} key={'app' + i} interviewed ={interviewed} />)
-    }//end of creating individual app components
+        apps.push(<ApplicationBox app={applications[i]} key={'app' + i} interviewed={interviewed} />)
+    }
+    //end of creating individual app components
 
     return (
         <div>

@@ -4,4 +4,4 @@ export interface OfferType {
     offerName: string,
     offerDate: string,
     result: boolean
-}
+} 
