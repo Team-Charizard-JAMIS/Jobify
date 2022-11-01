@@ -1,9 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
 import App from './App';
+import Navbar from './Navbar'
+import { BrowserRouter } from 'react-router-dom'
 
 render(
-  <App />,
-  document.getElementById('root'),
-
+  <BrowserRouter>
+    <Navbar />
+    <App />
+  </BrowserRouter>
+  ,
+  document.getElementById('root')
 );
