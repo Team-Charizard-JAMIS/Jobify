@@ -7,7 +7,8 @@ const jobController = {};
 jobController.getUsersInformation = (req, res, next) => {
     //collect just the basic user information from Users
 
-    const { username, password } = req.query;
+    //req.query or req.body
+    const { username, password } = req.body;
 
 
 const queryString = `SELECT user_id, username, password FROM USERS WHERE username=${username} AND password=${password}`;
@@ -23,7 +24,7 @@ db.query(queryString)
 
 jobController.getApplications = async (req, res, next) => {
 
-    const { username, password } = req.query;
+    const { username, password } = req.body;
 
 const queryString = `SELECT * FROM Users INNER JOIN Applications ON Users.user_id = Applications.user_id WHERE username='${username}' AND password='${password}'`;
 
@@ -38,7 +39,7 @@ const result = await db.query(queryString)
 
 jobController.getInterviews = (req, res, next) => {
 
-    const { username, password } = req.query;
+    const { username, password } = req.body;
 
 const queryString = `SELECT * FROM Users INNER JOIN Interviews ON Users.user_id = Interviews.user_id WHERE username='${username}' AND password='${password}'`;
 
@@ -54,7 +55,7 @@ message: {err: "Error occurred in jobController.getInterviews"}}))
 
 jobController.getOffers = (req, res, next) => {
 
-    const { username, password } = req.query;
+    const { username, password } = req.body;
 
 const queryString = `SELECT * FROM Users INNER JOIN Offers ON Users.user_id = Offers.user_id WHERE username='${username}' AND password='${password}'`;
 
@@ -69,7 +70,7 @@ const result = db.query(queryString)
 
 jobController.getAllInfo = async (req, res, next) => {
 
-    const { username, password } = req.query;
+    const { username, password } = req.body;
 
     const queryString = `SELECT * FROM Users INNER JOIN Applications ON Users.user_id = Applications.user_id INNER JOIN Interviews ON Users.user_id=Interviews.user_id INNER JOIN Offers ON Users.user_id = Offers.user_id WHERE username='${username}' AND password='${password}'`;
 
@@ -84,13 +85,13 @@ jobController.getAllInfo = async (req, res, next) => {
 
 jobController.postNewUser = (req, res, next) => {
 
-    const { username, password } = req.query;
+    const { username, password } = req.body;
 
     const queryString = `INSERT INTO Users(username, password) VALUES('${req.body.username}', '${req.body.password}')`
 
     db.query(queryString)
 .then((results) => {
-    console.log(results)
+    console.log('postNewUser results,', results)
     return next();
 })
 .catch(err => next({log : `jobController.postNewUser err ${JSON.stringify(err)}`, message : 'Error'}))
@@ -99,7 +100,7 @@ jobController.postNewUser = (req, res, next) => {
 
 jobController.postApplication = (req, res, next) => {
 
-    const { username, password } = req.query;
+    const { username, password } = req.body;
 
     const queryString = `INSERT INTO Applications (appName, appDate, user_id) VALUES ('${req.body.appName}', '${req.body.appDate}', (SELECT user_id FROM Users WHERE username='${username}' AND password='${password}'))`;
 
@@ -114,7 +115,7 @@ db.query(query)
 
 jobController.postInterview = (req, res, next) => {
 
-    const { username, password } = req.query;
+    const { username, password } = req.body;
 
     //goal: find a way to insert into another table based on the username and password of Users
     const queryString = `INSERT INTO Interviews (interviewName, interviewDate, user_id) VALUES ('${req.body.interviewName}', '${req.body.interviewDate}', (SELECT user_id FROM Users WHERE username='${username}' AND password='${password}'))`;
@@ -130,7 +131,7 @@ jobController.postInterview = (req, res, next) => {
 
 jobController.postOffer = (req, res, next) => {
 
-    const { username, password } = req.query;
+    const { username, password } = req.body;
 
     const queryString = `INSERT INTO Offers (offerName, offerDate, user_id) VALUES ('${req.body.offerName}', '${req.body.offerDate}', (SELECT user_id FROM Users WHERE username='${username}' AND password='${password}'))`;
 
