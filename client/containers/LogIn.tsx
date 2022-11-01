@@ -1,30 +1,17 @@
-import React from "react";
-import { makeStyles } from '@material-ui/core/styles';
-import { classicNameResolver } from "typescript";
-import {TextField, Container, Typography, Box, FormControlLabel, Checkbox, Button} from '@mui/material';
+
+import {TextField, Container, Typography, Box, FormControlLabel, Checkbox, Button, Grid} from '@mui/material';
 import { borderRadius } from '@mui/system';
+import React, { useState } from 'react';
 
-
-
-
-const useStyles = makeStyles({
-    root: {
-        backgroundColor: 'lavender',
-        width: "300px",
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
-    }
-});
-
-
-export const Login = () => {
+export const LogIn = () => {
+    const [hasAccount, setHasAccount] = useState(true)
 
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) =>{
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         
+        console.log((hasAccount)? 'This will log in' : 'This will sign up')
         //TODO: change this to POST to server/db
         console.log({
             email: data.get('email'),
@@ -40,12 +27,12 @@ export const Login = () => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            backgroundColor: 'white',
+            backgroundColor: 'lavender',
             width: '400px',
             borderRadius: '5px',
         }}>
 
-            <Typography component="h1" variant="h5" sx={{mt: 3}}>Please Sign-In</Typography>
+            <Typography component="h1" variant="h5" sx={{mt: 3}}>{(hasAccount) ? <a>Log In</a> : <a>Sign Up</a>}</Typography>
             <Box component="form" onSubmit={handleSubmit} >
                 <TextField
                     margin="normal"
@@ -64,8 +51,8 @@ export const Login = () => {
                     id="password"
                     label="password"
                     name="password"
-                    autoComplete="password"
-                    autoFocus
+                    type='password'
+                    autoComplete="current-password"
                 />
                 {/* <FormControlLabel 
                     control={<Checkbox value="remember" />}
@@ -77,7 +64,12 @@ export const Login = () => {
                     variant="contained"
                     sx={{mt: 3, mb: 4}}
                 >
-                    Submit
+                    {(hasAccount)? <a>Log in</a> : <a>Sign up</a>}
+                </Button>
+            </Box>
+            <Box>
+                <Button onClick={() => setHasAccount(!hasAccount)}>
+                    {(hasAccount) ? <a>Don't have an account? Sign Up</a> : <a>Have an account? Sign In</a>}            
                 </Button>
             </Box>
         </Container>
@@ -100,4 +92,4 @@ export const Login = () => {
     )
 }
 
-export default Login;
+export default LogIn;
