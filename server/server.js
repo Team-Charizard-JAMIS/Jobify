@@ -3,6 +3,11 @@ const path = require('path');
 const api = require('./routes/api');
 const oAuth = require('./routes/oauth')
 
+
+const applications = require('./routes/applications');
+const interviews = require('./routes/interviews');
+const offers = require('./routes/offers');
+
 const PORT = process.env.EXPRESS_PORT || 3000;
 const app = express();
 
@@ -18,8 +23,14 @@ app.use((req, res, next) => {
 // Serve the client build
 app.use('/build', express.static(path.resolve(__dirname, '../build')));
 
-// Handle API calls via api router
-app.use('/api', api);
+// Handle API calls via application router
+app.use('/applications', applications);
+
+// Handle API calls via interviews router
+app.use('/interviews', interviews);
+
+// Handle API calls via offers router
+app.use('/offers', offers);
 
 // Handle initial oAuth call to register or login user 
 app.use('/oauth', oAuth);
