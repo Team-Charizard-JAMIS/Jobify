@@ -1,3 +1,4 @@
+
 import {TextField, Container, Typography, Box, FormControlLabel, Checkbox, Button, Grid} from '@mui/material';
 import { borderRadius } from '@mui/system';
 import React, { useState } from 'react';
@@ -20,6 +21,8 @@ export const LogIn = () => {
 
 
     return(
+        <div>
+        
         <Container sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -70,6 +73,23 @@ export const LogIn = () => {
                 </Button>
             </Box>
         </Container>
+
+        <div id="g_id_onload"
+           data-client_id="1079971895229-v12dtpclssbub49pombpe4nibp8h82g6.apps.googleusercontent.com"
+           data-login_uri="http://localhost:3000/oauth/"
+           data-auto_prompt="false">
+        </div>
+        <div className="g_id_signin"
+           data-type="standard"
+           data-size="large"
+           data-theme="outline"
+           data-text="sign_in_with"
+           data-shape="rectangular"
+           data-logo_alignment="left">
+        </div>
+        <div id="buttonDiv"></div> 
+        </div>
     )
 }
 
+export default Login;

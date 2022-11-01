@@ -4,7 +4,6 @@ const exampleController = require('../controllers/exampleController');
 const router = Router();
 
 
-
 router.use((req, res, next) => {
   console.log(`server/routes/example.js: received request ${req.method} ${req.url}`);
   next();
@@ -19,6 +18,7 @@ router.get('/', (req, res, next) => {
     res.status(200).json(res.locals.examples);
   }
 );
+
 
 router.put('/', (req, res, next) => {
     console.log(`server/routes/example.js.router.put('/'): received request ${req.method} ${req.url}`);
