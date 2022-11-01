@@ -4,7 +4,6 @@ const exampleController = require('../controllers/exampleController');
 const router = Router();
 
 
-
 router.use((req, res, next) => {
   console.log(`server/routes/example.js: received request ${req.method} ${req.url}`);
   next();

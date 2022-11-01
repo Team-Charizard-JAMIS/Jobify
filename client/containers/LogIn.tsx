@@ -33,28 +33,13 @@ const Login = () => {
         });
     };
 
-// const client = new OAuth2Client("1079971895229-v12dtpclssbub49pombpe4nibp8h82g6.apps.googleusercontent.com");
-// async function verify() {
-//   const ticket = await client.verifyIdToken({
-//       idToken: 123,
-//       audience: "1079971895229-v12dtpclssbub49pombpe4nibp8h82g6.apps.googleusercontent.com",  // Specify the CLIENT_ID of the app that accesses the backend
-//       // Or, if multiple clients access the backend:
-//       //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
-//   });
-//   const payload = ticket.getPayload();
-//   const userid = payload['sub'];
-//   // If request specified a G Suite domain:
-//   // const domain = payload['hd'];
-// }
-// verify().catch(console.error);
-
 
 
     return(
         <div> The login will be here once fixed
       <div id="g_id_onload"
          data-client_id="1079971895229-v12dtpclssbub49pombpe4nibp8h82g6.apps.googleusercontent.com"
-         data-login_uri="http://localhost:3000/api/"
+         data-login_uri="http://localhost:3000/oauth/"
          data-auto_prompt="false">
       </div>
       <div className="g_id_signin"
