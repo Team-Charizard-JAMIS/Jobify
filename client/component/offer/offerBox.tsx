@@ -1,25 +1,23 @@
 import * as React from "react";
-import { App } from '../../Types/applicationTypes';
-import { Button } from '@mui/material';
+import { OfferType } from '../../Types/offerTypes';
 
-type AppBoxProps = {
-    app: App,
+type OfferBoxProps = {
+    offer: OfferType,
     key: string
-    interviewed: (appID: number) => void
 }
 
-const ApplicationBox = (props: AppBoxProps) => {
-    const name = props.app.appName;
-    const date = props.app.appDate;
-    const addInterview = props.interviewed;
+const OfferBox = (props: OfferBoxProps) => {
+    const name = props.offer.offerName;
+    const date = props.offer.offerDate;
+    const result = props.offer.result;
 
-    return ( 
-        <div className='applicationsTable'>
+    return (
+        <div className='interviewTable'>
             <div>{date}</div>
             <div>{name}</div>
-            <div><Button onClick={() => addInterview(props.app.id)}> + </Button></div>
+            <div>{result ? 'Yes' : 'No'}</div>
         </div>
-     );
+    );
 }
- 
-export default ApplicationBox;
+
+export default OfferBox;

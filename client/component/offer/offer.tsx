@@ -1,38 +1,35 @@
 import React, { useState } from 'react';
-import { Button } from '@mui/material';
-import ApplicationBox from './applicationbox';
-import { App } from '../../Types/applicationTypes';
-import './applicationStyles.css';
+import OfferBox from './offerBox';
+import { OfferType } from '../../Types/offerTypes';
+import './offerStyles.css';
 
-interface ApplicationProps {
-    applications: Array<App>,
-    interviewed: (appID: number) => void
-}
+interface OfferProps {
+    offers: Array<OfferType>
+};
 
-const Application = (props: ApplicationProps) => {
-    const applications = props.applications;
-    const interviewed = props.interviewed;
-    const apps = [];
-    for (let i = 0; i < applications.length; i++) {
-        apps.push(<ApplicationBox app={applications[i]} key={'app' + i} interviewed ={interviewed} />)
-    }//end of creating individual app components
+const Offer = (props: OfferProps) => {
+    const offers = props.offers;
+    // const offered = props.offered;
+    const offerResult = [];
+    for (let i = 0; i < offers.length; i++) {
+        offerResult.push(<OfferBox offer={offers[i]} key={'offer' + i} />)
+    }
 
     return (
         <div>
-            <h1>Application</h1>
+            <h1>Offers</h1>
 
-            <div className='applyContainer'>
-                <h1>Applied</h1>
-                <Button className='addApp'>+</Button>
+            <div className='offerContainer'>
+                <h1>Done</h1>
             </div>
-            <div className='applicationsTable'>
-                <div>Date Applied</div>
-                <div>Application Name</div>
-                <div>Interviewed?</div>
+            <div className='offerTable'>
+                <div>Interview Date</div>
+                <div>Company Name</div>
+                <div>Offer?</div>
             </div>
-            {apps}
+            {offerResult}
         </div>
     )
 }
 
-export default Application;
+export default Offer;

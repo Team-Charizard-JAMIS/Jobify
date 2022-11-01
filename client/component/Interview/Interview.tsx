@@ -13,7 +13,7 @@ const Interview = (props: InterviewProps) => {
     const offered = props.offered;
     const rows = [];
     for (let i = 0; i < interviews.length; i++) {
-        rows.push(<InterviewBox interview={interviews[i]} key={'interview' + i} offered ={offered} />)
+        rows.push(<InterviewBox interview={interviews[i]} key={'interview' + i} offered={offered} />)
     }//end of creating individual app components
 
     return (

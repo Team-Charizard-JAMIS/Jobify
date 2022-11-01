@@ -1,7 +1,7 @@
 export interface OfferType {
     user_id: number,
-    offerId: number,
+    offerID: number,
     offerName: string,
-    offerDate: string, 
-    offer_id: number
+    offerDate: string,
+    result: boolean
 }

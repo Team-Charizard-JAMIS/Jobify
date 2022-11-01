@@ -13,13 +13,13 @@ const InterviewBox = (props: InterviewBoxProps) => {
     const date = props.interview.interviewDate;
     const addOffer = props.offered;
 
-    return ( 
+    return (
         <div className='interviewTable'>
             <div>{date}</div>
             <div>{name}</div>
             <div><Button onClick={() => addOffer(props.interview.interviewId)}> + </Button></div>
         </div>
-     );
+    );
 }
- 
+
 export default InterviewBox;
