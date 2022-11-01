@@ -1,8 +1,7 @@
 const Router = require('express');
 const jwt = require('jsonwebtoken');
 const {OAuth2Client} = require('google-auth-library');
-
-const client = new OAuth2Client('1079971895229-v12dtpclssbub49pombpe4nibp8h82g6.apps.googleusercontent.com');
+const loginController = require('../controllers/loginController');
 
 
 const router = Router();
@@ -12,25 +11,17 @@ router.use((req, res, next) => {
   next();
 });
 
-router.get('/', (req, res) => {
+router.get('/', loginController.verifyToken, (req, res) => {
   console.log(`server/routes/oauth.ts.router.get('/'): received request ${req.method} ${req.url}`);
-  res.status(200).json({message: 'oauth online'});
+  res.status(200).json({message: 'oauth online and verification passed'});
 });
 
-router.post('/', (req,res) => {
-  async function verify() {
-    const ticket = await client.verifyIdToken({
-      idToken: req.body.credential,
-      audience: '1079971895229-v12dtpclssbub49pombpe4nibp8h82g6.apps.googleusercontent.com',  // Specify the CLIENT_ID of the app that accesses the backend
-    });
-    const payload = ticket.getPayload();
-    const userid = payload['sub'];
-    console.log(userid, payload);
-  }
-  verify().catch(console.error);
+router.post('/', loginController.googleOauth, loginController.createToken, loginController.verifyToken, (req, res) => {
+  // here do a check if user exists or not. if exists and token is valid, create JWT token to check each page
+    // if user does not exist, create that user in DB and then create jwt token?
 
-  res.status(200).json({message: 'Oauth for google is working'});
-})
+  res.status(200).json({ message: 'Oauth for google is working' });
+});
 
 // router.use('/example', example);
 
