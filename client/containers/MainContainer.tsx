@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import Application from '../component/application/application'
-import Interview from '../component/interview/interview'
+import Application from '../component/application/application';
+import Interview from '../component/interview/interview';
+import Login from './LogIn';
 import Offer from '../component/Offer/offer';
 import { App } from '../Types/applicationTypes';
 import { InterviewType } from '../Types/interviewTypes';
 import { OfferType } from '../Types/offerTypes';
 import ApplicationForm from '../component/ApplicationForm/ApplicationForm'
-import {LogIn} from './LogIn'
+// import Results from './../component/results'
 
 const MainContainer = () => {
   const [apps, setApps] = useState<Array<App>>([
@@ -73,13 +74,13 @@ const MainContainer = () => {
   return (
     <div>
       <h2>Dashboard</h2>
-      <LogIn />
+      <Login />
       <ApplicationForm />
       <Application applications={apps} interviewed={interviewed} />
       <Interview interviews={interviews} offered={offered} />
       <Offer offers={offers} />
     </div>
   )
-}
+};
 
 export default MainContainer;

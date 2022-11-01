@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const api = require('./routes/api');
+const oAuth = require('./routes/oauth')
 
 const PORT = process.env.EXPRESS_PORT || 3000;
 const app = express();
@@ -19,6 +20,9 @@ app.use('/build', express.static(path.resolve(__dirname, '../build')));
 
 // Handle API calls via api router
 app.use('/api', api);
+
+// Handle initial oAuth call to register or login user 
+app.use('/oauth', oAuth);
 
 // Serve index.html
 app.get('/', (req, res) => {

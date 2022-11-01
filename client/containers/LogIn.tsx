@@ -1,8 +1,24 @@
+import React from "react";
+import { makeStyles } from '@material-ui/core/styles';
+import { classicNameResolver } from "typescript";
 import {TextField, Container, Typography, Box, FormControlLabel, Checkbox, Button} from '@mui/material';
 import { borderRadius } from '@mui/system';
-import React from 'react';
 
-export const LogIn = () => {
+
+
+
+const useStyles = makeStyles({
+    root: {
+        backgroundColor: 'lavender',
+        width: "300px",
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+    }
+});
+
+
+export const Login = () => {
 
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) =>{
@@ -18,6 +34,8 @@ export const LogIn = () => {
 
 
     return(
+        <div>
+        
         <Container sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -63,6 +81,23 @@ export const LogIn = () => {
                 </Button>
             </Box>
         </Container>
+
+        <div id="g_id_onload"
+           data-client_id="1079971895229-v12dtpclssbub49pombpe4nibp8h82g6.apps.googleusercontent.com"
+           data-login_uri="http://localhost:3000/oauth/"
+           data-auto_prompt="false">
+        </div>
+        <div className="g_id_signin"
+           data-type="standard"
+           data-size="large"
+           data-theme="outline"
+           data-text="sign_in_with"
+           data-shape="rectangular"
+           data-logo_alignment="left">
+        </div>
+        <div id="buttonDiv"></div> 
+        </div>
     )
 }
 
+export default Login;
