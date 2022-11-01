@@ -10,19 +10,44 @@ export const LogIn = () => {
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) =>{
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        
+        const creds = {
+            email: data.get('email'),
+            password: data.get('password')
+        }
         console.log((hasAccount)? 'This will log in' : 'This will sign up')
         //TODO: change this to POST to server/db
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+        console.log(creds);
+
     };
+
+    // function logMeIn(e: React.SyntheticEvent) {
+    //     e.preventDefault();
+    //     axios
+    //       .post('/userAPI/login', {
+    //         email,
+    //         plainPassword: password,
+    //       })
+    //       .then((res) => {
+    //         if (res.status === 200) {
+    //           setUser(res.data);
+    //           navigate('/home');
+    //         }
+    //       })
+    //       .catch((err) => {
+    //         console.log(err);
+    //         if (err.response.status === 401) {
+    //           setError(
+    //             'Error: Invalid email address and/or password. Please try again.'
+    //           );
+    //         } else {
+    //           setError(`status: ${err.response.status} , ${err.response.data}`);
+    //         }
+    //       });
+    //   }
 
 
     return(
-        <div>
-        
+
         <Container sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -67,28 +92,29 @@ export const LogIn = () => {
                     {(hasAccount)? <a>Log in</a> : <a>Sign up</a>}
                 </Button>
             </Box>
+            <div>
+                <div id="g_id_onload"
+                data-client_id="1079971895229-v12dtpclssbub49pombpe4nibp8h82g6.apps.googleusercontent.com"
+                data-login_uri="http://localhost:3000/oauth/"
+                data-auto_prompt="false">
+                </div>
+                <div className="g_id_signin"
+                data-type="standard"
+                data-size="large"
+                data-theme="outline"
+                data-text="sign_in_with"
+                data-shape="rectangular"
+                data-logo_alignment="left">
+                </div>
+                <div id="buttonDiv"></div> 
+            </div>
+
             <Box>
                 <Button onClick={() => setHasAccount(!hasAccount)}>
                     {(hasAccount) ? <a>Don't have an account? Sign Up</a> : <a>Have an account? Sign In</a>}            
                 </Button>
             </Box>
         </Container>
-
-        <div id="g_id_onload"
-           data-client_id="1079971895229-v12dtpclssbub49pombpe4nibp8h82g6.apps.googleusercontent.com"
-           data-login_uri="http://localhost:3000/oauth/"
-           data-auto_prompt="false">
-        </div>
-        <div className="g_id_signin"
-           data-type="standard"
-           data-size="large"
-           data-theme="outline"
-           data-text="sign_in_with"
-           data-shape="rectangular"
-           data-logo_alignment="left">
-        </div>
-        <div id="buttonDiv"></div> 
-        </div>
     )
 }
 

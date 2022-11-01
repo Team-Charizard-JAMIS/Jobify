@@ -74,7 +74,6 @@ const MainContainer = () => {
   return (
     <div>
       <h2>Dashboard</h2>
-      <LogIn/>
       <ApplicationForm />
       <Application applications={apps} interviewed={interviewed} />
       <Interview interviews={interviews} offered={offered} />
