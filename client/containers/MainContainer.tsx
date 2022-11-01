@@ -7,6 +7,7 @@ import { App } from '../Types/applicationTypes';
 import { InterviewType } from '../Types/interviewTypes';
 import { OfferType } from '../Types/offerTypes';
 import ApplicationForm from '../component/ApplicationForm/ApplicationForm'
+import Results from './../component/results'
 
 const MainContainer = () => {
   const [apps, setApps] = useState<Array<App>>([
