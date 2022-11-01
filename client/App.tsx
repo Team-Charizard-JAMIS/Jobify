@@ -12,7 +12,6 @@ function App() {
 
   return (
     <div>
-< MainContainer />
       <Routes>
         <Route path='/about' element={< About />} />
         <Route path='/' element={< MainContainer />} />
