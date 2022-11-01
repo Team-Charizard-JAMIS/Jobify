@@ -3,6 +3,7 @@ import MainContainer from './containers/MainContainer';
 
 function App() {
 
+
   return (
     <div>
       <div>Welcome to Jobify! </div>
