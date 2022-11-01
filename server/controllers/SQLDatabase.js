@@ -145,4 +145,6 @@ jobController.postOffer = (req, res, next) => {
 
 }
 
+//CREATE TABLE Offers (user_id SERIAL, offerID INT, offerName VARCHAR(50), offerDate DATE, result BOOL)
+
 module.exports = jobController;

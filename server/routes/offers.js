@@ -1,35 +1,17 @@
 const Router = require('express');
 const exampleController = require('../controllers/applicationsController');
 
-const router = Router();
+const offersRouter = Router();
 
-
-router.use((req, res, next) => {
-  console.log(`server/routes/example.js: received request ${req.method} ${req.url}`);
-  next();
-});
-
-router.get('/', (req, res, next) => {
-  console.log(`server/routes/example.js.router.get('/'): received request ${req.method} ${req.url}`);
-  next();
-},
-  exampleController.getAllExamples,
-  (req, res) => {
-    res.status(200).json(res.locals.examples);
+offersRouter.get('/', (req, res) => {
+    res.status(200).json(res.locals.offers);
   }
 );
 
-
-router.put('/', (req, res, next) => {
-  console.log(`server/routes/example.js.router.put('/'): received request ${req.method} ${req.url}`);
-  next();
-},
-  exampleController.createExample,
-  (req, res) => {
-    res.status(200).json(res.locals.newExample);
+offersRouter.post('/', (req, res) => {
+    res.status(200).json(res.locals.offer);
   }
 );
-
 
 // api router 404 handler
 router.use((req, res) => {

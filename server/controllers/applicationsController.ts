@@ -1,5 +1,5 @@
-import Application from '../models/applicationModel'
 import { Request, Response, NextFunction } from 'express';
+import db from '../models/SQLModel';
 
 interface ApplicationType {
   create: (req: Request, res: Response, next: NextFunction) => void;
@@ -9,12 +9,20 @@ interface ApplicationType {
 const applicationController: ApplicationType = {
   create: async (req, res, next) => {
     try {
-      const name = req.name;
-      const date = `${Date.now()}`;
       //fields to deconstruct from req.body
-      const dbRes = await Application.create(req.body)
-      res.locals.apps = dbRes;
-      return next();
+      const { appName } = req.body
+
+      //get id instead of 42 from cookies/session
+      //dont know if this date thing will work lol -- jimmy's work lol
+      const queryString = `INSERT INTO Applications (appName, appDate) VALUES ('${appName}', '${new Date().toISOString().slice(0, 10)}')`; //make sure result is true/false
+
+      db.query(queryString)
+        .then((results) => {
+          res.locals.application = results
+          return next();
+        })
+      // const dbRes;
+
     } catch {
       return next({
         log: null,
@@ -25,11 +33,12 @@ const applicationController: ApplicationType = {
   },
   getApps: async (req, res, next) => {
     try {
-      const id = res.locals.id;
-      //just a get request for all applications in applications table that is for the user
-      const dbRes = await Application.select(req.body)
-      res.locals.apps = dbRes;
-      return next();
+      const id = res.locals.id || 1
+      //select * from
+      //where id = id
+
+      const queryString = `SELECT * FROM Applications WHERE user_id = ${id}`;
+
     } catch {
       return next({
         log: null,
