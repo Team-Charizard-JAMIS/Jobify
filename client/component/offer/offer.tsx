@@ -12,6 +12,7 @@ const Offer = (props: OfferProps) => {
     // const offered = props.offered;
     const offerResult = [];
     for (let i = 0; i < offers.length; i++) {
+        //props to OfferBox is an array containing the information of offerName, offerDate, and results.
         offerResult.push(<OfferBox offer={offers[i]} key={'offer' + i} />)
     }
 

@@ -11,7 +11,7 @@ jobController.getUsersInformation = (req, res, next) => {
     const { username, password } = req.body;
 
 
-const queryString = `SELECT user_id, username, password FROM USERS WHERE username=${username} AND password=${password}`;
+const queryString = `SELECT user_id, username, password FROM Users WHERE username='${username}' AND password='${password}'`;
 
 db.query(queryString)
 .then((results => {
@@ -87,7 +87,7 @@ jobController.postNewUser = (req, res, next) => {
 
     const { username, password } = req.body;
 
-    const queryString = `INSERT INTO Users(username, password) VALUES('${req.body.username}', '${req.body.password}')`
+    const queryString = `INSERT INTO Users(username, password) VALUES('${username}', '${password}')`
 
     db.query(queryString)
 .then((results) => {
