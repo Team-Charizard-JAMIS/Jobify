@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 console.log('NODE_ENV: ', process.env.NODE_ENV)
 
 module.exports = {
-  entry: './client/index.js',
+  entry: './client/index.tsx',
 
   output: {
     path: path.resolve(__dirname, './build/'),
@@ -38,7 +38,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?/,
+        test: /\.js$|jsx/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -48,13 +48,29 @@ module.exports = {
         },
       },
       {
-        test: /\.s[ac]ss$/i,
+        test: /\.js$|jsx/,
+        exclude: /node_modules/,
+        use: {
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
+      },
+      // {
+      //   test: /\.s[ac]ss$/i,
+      //   use: [
+      //     // Compiles Sass to CSS
+      //     'ts-loader',
+      //     'css-loader',
+      //     'sass-loader',
+      //   ],
+      // },
+      {
+        test: /\.css$/,
         use: [
           // Compiles Sass to CSS
           'style-loader',
-          'ts-loader',
           'css-loader',
-          'sass-loader',
         ],
       },
       {
@@ -69,6 +85,6 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json']
+    extensions: ['*', '.ts', '.tsx', '.js', '.jsx', '.json']
   }
 };

@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
   res.status(200).json({message: 'api router online'});
 });
 
+
 router.use('/example', example);
 
 router.use((req, res) => {
