@@ -6,6 +6,9 @@ const oAuth = require('./routes/oauth')
 const PORT = process.env.EXPRESS_PORT || 3000;
 const app = express();
 
+const cookieParser = require("cookie-parser");
+
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
