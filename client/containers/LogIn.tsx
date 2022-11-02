@@ -1,64 +1,24 @@
 
-import {TextField, Container, Typography, Box, FormControlLabel, Checkbox, Button, Grid} from '@mui/material';
-import { borderRadius } from '@mui/system';
+import {TextField, Container, Typography, Box, Button } from '@mui/material';
 import React, { useState } from 'react';
 
-export const LogIn = () => {
-    const [hasAccount, setHasAccount] = useState(true)
-
-
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) =>{
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        const creds = {
-            email: data.get('email'),
-            password: data.get('password')
-        }
-        console.log((hasAccount)? 'This will log in' : 'This will sign up')
-        //TODO: change this to POST to server/db
-        console.log(creds);
-
-    };
-
-    // function logMeIn(e: React.SyntheticEvent) {
-    //     e.preventDefault();
-    //     axios
-    //       .post('/userAPI/login', {
-    //         email,
-    //         plainPassword: password,
-    //       })
-    //       .then((res) => {
-    //         if (res.status === 200) {
-    //           setUser(res.data);
-    //           navigate('/home');
-    //         }
-    //       })
-    //       .catch((err) => {
-    //         console.log(err);
-    //         if (err.response.status === 401) {
-    //           setError(
-    //             'Error: Invalid email address and/or password. Please try again.'
-    //           );
-    //         } else {
-    //           setError(`status: ${err.response.status} , ${err.response.data}`);
-    //         }
-    //       });
-    //   }
-
+export const LogIn = (props: any) => {
+    //const [hasAccount, setHasAccount] = useState(true);
+    let hasAccount = props.hasAccount
 
     return(
-
         <Container sx={{
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            justifyContent: 'center',
             backgroundColor: 'lavender',
             width: '400px',
             borderRadius: '5px',
         }}>
 
             <Typography component="h1" variant="h5" sx={{mt: 3}}>{(hasAccount) ? <a>Log In</a> : <a>Sign Up</a>}</Typography>
-            <Box component="form" onSubmit={handleSubmit} >
+            <Box component="form" onSubmit={props.handleSubmit} >
                 <TextField
                     margin="normal"
                     required
@@ -91,6 +51,7 @@ export const LogIn = () => {
                 >
                     {(hasAccount)? <a>Log in</a> : <a>Sign up</a>}
                 </Button>
+                <Button onClick={props.dummyLogIn}>Dummy Button</Button>
             </Box>
             <div>
                 <div id="g_id_onload"
@@ -110,8 +71,8 @@ export const LogIn = () => {
             </div>
 
             <Box>
-                <Button onClick={() => setHasAccount(!hasAccount)}>
-                    {(hasAccount) ? <a>Don't have an account? Sign Up</a> : <a>Have an account? Sign In</a>}            
+                <Button onClick={() => props.setHasAccount(!hasAccount)}>
+                    {(hasAccount) ? <a>Don't have an account? Sign Up</a> : <a>Have an account? Log In</a>}            
                 </Button>
             </Box>
         </Container>

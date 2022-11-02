@@ -9,7 +9,9 @@ import { OfferType } from '../Types/offerTypes';
 import ApplicationForm from '../component/ApplicationForm/ApplicationForm'
 // import Results from './../component/results'
 
-const MainContainer = () => {
+const MainContainer = (props:any) => {
+  let loggedIn =  props.loggedIn
+
   const [apps, setApps] = useState<Array<App>>([
     { id: 1, appName: 'Spotify', appDate: String(Date.now()), user_id: 1 },
     { id: 2, appName: 'Amazon', appDate: String(Date.now()), user_id: 1 },
@@ -72,13 +74,19 @@ const MainContainer = () => {
   }
 
   return (
-    <div>
-      <h2>Dashboard</h2>
-      <ApplicationForm />
-      <Application applications={apps} interviewed={interviewed} />
-      <Interview interviews={interviews} offered={offered} />
-      <Offer offers={offers} />
-    </div>
+    (!loggedIn) ? 
+      <LogIn 
+        handleSubmit={props.handleSubmit} 
+        hasAccount={props.hasAccount} 
+        setHasAccount={props.setHasAccount} 
+      /> :        
+      <div>
+        <h2>Dashboard</h2>
+        <ApplicationForm />
+        <Application applications={apps} interviewed={interviewed} />
+        <Interview interviews={interviews} offered={offered} />
+        <Offer offers={offers} />
+      </div>  
   )
 };
 
