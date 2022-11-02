@@ -9,6 +9,7 @@ const cors = require('cors')
 const applications = require('./routes/applications.ts');
 const interviews = require('./routes/interviews');
 const offers = require('./routes/offers');
+const users = require('./routes/userlogin');
 
 // const https = require('https')
 // const bodyParser = require('body-parser')
@@ -38,6 +39,9 @@ app.use('/api/interviews', interviews);
 
 // Handle API calls via offers router
 app.use('/api/offers', offers);
+
+//Handle login calls via userlogin router
+app.use('/api/login', users);
 
 // Handle initial oAuth call to register or login user 
 app.use('/oauth', oAuth);

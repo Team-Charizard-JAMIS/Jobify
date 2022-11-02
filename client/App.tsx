@@ -25,13 +25,12 @@ const App: React.FC = () => {
 
     const data = new FormData(event.currentTarget);
     const creds = {
-        email: data.get('email'),
+        username: data.get('username'),
         password: data.get('password')
     }
 
     if (hasAccount){
       console.log('logging in')
-      setLoggedIn(true)
       // axios
       // //TODO change to real route
       // .post('/userAPI/login', creds)
@@ -50,10 +49,18 @@ const App: React.FC = () => {
       //   } else {
       //     alert(`status: ${err.response.status} , ${err.response.data}`);
       //   }
-      // });
+      // });      
+      setLoggedIn(true)
     }
     else {
       console.log('this will register account')
+      // axios
+      //   .post('/api/users', creds)
+      //     .then((res) => {
+      //       if(res.status === 201){
+      //         setLoggedIn(true)
+      //       }
+      //     })
     }
   };
 

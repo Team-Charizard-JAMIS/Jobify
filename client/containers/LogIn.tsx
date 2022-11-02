@@ -23,10 +23,10 @@ export const LogIn = (props: any) => {
                     margin="normal"
                     required
                     fullWidth
-                    id="email"
-                    label="email address"
-                    name="email"
-                    autoComplete="email"
+                    id="username"
+                    label="username"
+                    name="username"
+                    autoComplete="username"
                     autoFocus
                 />
                 <TextField
