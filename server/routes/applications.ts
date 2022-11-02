@@ -1,6 +1,7 @@
-const Router = require('express');
+import express from 'express'
 const applicationController = require('../controllers/applicationsController');
 
+const router = express.Router();
 const appRouter = Router();
 
 appRouter.get('/', applicationController.getApps, (req, res) => {
@@ -12,8 +13,8 @@ appRouter.post('/', applicationController.create, (req, res, next) => {
 });
 
 appRouter.delete('/', applicationController.delete, (req, res, next) => {
-    res.status(200).json(res.locals.app);
-  }
+  res.status(200).json(res.locals.app);
+}
 );
 
 // api router 404 handler
