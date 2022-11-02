@@ -25,27 +25,35 @@ module.exports = {
     static: {
       directory: path.resolve(__dirname, './public/'),
     },
-    compress: true,
     port: 8080,
+    open: true,
+    hot: true,
+    compress: true,
     proxy: {
       '/api/**': {
         target: 'http://localhost:3000/',
         secure: false,
-      },
+        changeOrigin: true
+      }
     },
   },
 
   module: {
     rules: [
+      // {
+      //   test: /\.ts$|tsx/,
+      //   exclude: /node_modules/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: ['@babel/preset-env', '@babel/preset-react'],
+      //     },
+      //   },
+      // },
       {
-        test: /\.js$|jsx/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-          },
-        },
+        use: ['ts-loader'],
       },
       {
         test: /\.js$|jsx/,

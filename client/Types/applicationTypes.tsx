@@ -1,6 +1,6 @@
 export interface App {
-    id: number,
-    appName: string,
-    appDate: string, 
+    application_id: number,
+    appname: string,
+    appdate: string,
     user_id: number
 }

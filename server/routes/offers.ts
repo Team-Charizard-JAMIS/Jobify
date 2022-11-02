@@ -11,7 +11,7 @@ router.get('/', offerController.read, (req, res) => {
 );
 
 router.post('/', offerController.create, (req, res) => {
-  res.status(200).json(res.locals.offer);
+  res.status(200).json(res.locals.offers);
 }
 );
 

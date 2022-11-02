@@ -9,8 +9,8 @@ type InterviewBoxProps = {
 }
 
 const InterviewBox = (props: InterviewBoxProps) => {
-    const name = props.interview.interviewName;
-    const date = props.interview.interviewDate;
+    const name = props.interview.interviewname;
+    const date = props.interview.interviewdate;
     const addOffer = props.offered;
 
     return (

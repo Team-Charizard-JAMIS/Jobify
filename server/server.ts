@@ -6,8 +6,8 @@ const path = require('path');
 const cors = require('cors')
 
 const applications = require('./routes/applications.ts');
-// const interviews = require('./routes/interviews');
-// const offers = require('./routes/offers');
+const interviews = require('./routes/interviews');
+const offers = require('./routes/offers');
 
 // const https = require('https')
 // const bodyParser = require('body-parser')
@@ -33,10 +33,10 @@ app.use('/', express.static(path.resolve(__dirname, '/client/public')));
 app.use('/api/applications', applications);
 
 // Handle API calls via interviews router
-// app.use('/api/interviews', interviews);
+app.use('/api/interviews', interviews);
 
 // Handle API calls via offers router
-// app.use('/api/offers', offers);
+app.use('/api/offers', offers);
 
 // Handle initial oAuth call to register or login user 
 // app.use('/oauth', oAuth);

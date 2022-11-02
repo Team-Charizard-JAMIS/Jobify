@@ -1,16 +1,13 @@
 // import express from 'express'
 const express = require('express');
 // import cookieParser from 'cookie-parser'
-// import applicationController from '../controllers/applicationsController';
+import applicationController from '../controllers/applicationsController';
 
 const router = express.Router()
 // router.use(cookieParser());
 
-// router.get('/', applicationController.getApps, (req, res) => {
-router.get('/', (req: any, res: any) => {
-  console.log('applicationGet route hit!')
-  // res.status(200).json(res.locals.applications)
-  res.status(200).json({ express: 'hello' })
+router.get('/', applicationController.getApps, (req: any, res: any) => {
+  res.status(200).json(res.locals.applications)
 });
 
 // router.post('/', applicationController.create, (req, res, next) => {

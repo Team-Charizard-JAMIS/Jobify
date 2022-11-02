@@ -1,6 +1,6 @@
 export interface InterviewType {
     interviewId: number,
-    interviewName: string,
-    interviewDate: string, 
+    interviewname: string,
+    interviewdate: string,
     user_id: number
 }

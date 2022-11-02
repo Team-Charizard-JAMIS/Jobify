@@ -7,7 +7,7 @@ import './applicationStyles.css';
 
 interface ApplicationProps {
     applications: Array<App>,
-    interviewed: (appID: number) => void
+    interviewed: (appName: string) => void
     applied : (name: string) => void
 }
 
@@ -37,12 +37,14 @@ const Application = (props: ApplicationProps) => {
                 {modalOpen && <Modal setModalOpen={setModalOpen} applied={applied} />}
             </div>
            <table className='applicationsTable'>
+                <tbody>
             <tr>
                 <th>Date Applied</th>
                 <th>Application Name</th>
                 <th>Interviewed?</th>
             </tr>
-            {apps}
+                {apps}
+                </tbody>
            </table>
            
            

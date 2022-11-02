@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-// import db from '../models/SQLModel';
+import db from '../models/SQLModel';
 
 interface InterviewType {
   create: (req: Request, res: Response, next: NextFunction) => void;
@@ -11,17 +11,16 @@ const interviewController: InterviewType = {
     try {
       //fields to deconstruct from req.body
       console.log('hello')
-      // const { interviewName, interviewDate } = req.body
+      const { appName } = req.body
 
       // //get id instead of 42 from cookies/session
-      // const queryString = `INSERT INTO Offers ( interviewName, interviewDate ) VALUES ('${interviewName}', '${new Date().toISOString().slice(0, 10)}')`; //make sure result is true/false
+      const queryString = `INSERT INTO Interviews ( interviewName, interviewDate ) VALUES ('${appName}', '${new Date().toISOString().slice(0, 10)}')`; //make sure result is true/false
 
-      // db.query(queryString)
-      //   .then((results) => {
-      //     res.locals.interviews = results
-      //     return next();
-      //   })
-      // const dbRes;
+      db.query(queryString)
+        .then((results: any) => {
+          res.locals.interviews = results
+          return next();
+        })
 
     } catch {
       return next({
@@ -37,13 +36,12 @@ const interviewController: InterviewType = {
       //select * from
       //where id = id
 
+      const queryString = `SELECT * FROM Interviews`;
       // const queryString = `SELECT * FROM Interviews WHERE user_id = ${id}`;
-      // db.query(queryString)
-      //   .then((results) => {
-      //     res.locals.interviews = results
-      //     return next();
-      //   })
-      console.log('helloread')
+      const result = await db.query(queryString)
+      console.log('result', result.rows)
+      res.locals.interviews = result.rows
+      return next()
     } catch {
       return next({
         log: null,

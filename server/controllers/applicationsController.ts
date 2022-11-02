@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-// import db from '../models/SQLModel';
+import db from '../models/SQLModel';
 
 interface ApplicationType {
   create: (req: Request, res: Response, next: NextFunction) => void;
@@ -37,18 +37,17 @@ const applicationController: ApplicationType = {
       // const id = res.locals.id || 1
       //select * from
       //where id = id
+      console.log('middleware hit')
 
       // const queryString = `SELECT * FROM Applications WHERE user_id = ${id}`;
       // const queryString = `SELECT * FROM Applications`;
-      // const result = db.query(queryString)
-      // console.log(result, 'result')
-      res.send({
-        id: 22,
-        appName: 'hello',
-        appDate: '2022-04-22',
-        user_id: 20
-      })
-      // res.locals.applications = result
+
+      // const result = await db.query(queryString)
+      const result = await db.query(`SELECT * FROM Applications`)
+
+      console.log('result', result)
+      res.locals.applications = result.rows
+      return next()
     } catch {
       return next({
         log: null,

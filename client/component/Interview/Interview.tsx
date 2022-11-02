@@ -24,12 +24,14 @@ const Interview = (props: InterviewProps) => {
                 <h1>In Progress</h1>
             </div>
             <table className='interviewTable'>
+                <tbody>
                 <tr>
                     <th>Interview Date</th>
                     <th>Company Name</th>
                     <th>Offer?</th>
                 </tr>
                 {rows}
+                </tbody>
             </table>
 
 
