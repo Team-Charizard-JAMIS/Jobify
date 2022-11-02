@@ -7,8 +7,8 @@ type OfferBoxProps = {
 }
 
 const OfferBox = (props: OfferBoxProps) => {
-    const name = props.offer.offerName;
-    const date = props.offer.offerDate;
+    const name = props.offer.offername;
+    const date = props.offer.offerdate;
     const result = props.offer.result;
 
     return (

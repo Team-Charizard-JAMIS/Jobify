@@ -5,27 +5,27 @@ import { Button } from '@mui/material';
 type InterviewBoxProps = {
     interview: InterviewType,
     key: string
-    offered: (interviewID: number) => void
+    offered: (interviewName: string) => void
 }
 
 const InterviewBox = (props: InterviewBoxProps) => {
-    const name = props.interview.interviewName;
-    const date = props.interview.interviewDate;
-    const addOffer = props.offered;
+    const name = props.interview.interviewname;
+    const date = props.interview.interviewdate;
+    const offered = props.offered;
 
     return (
-        <tr className='interviewTable'>
-        <th>{date}</th>
-        <th>{name}</th>
-        <th><Button onClick={() => addOffer(props.interview.interviewId)}> + </Button></th>
-    </tr>
+    //     <tr className='interviewTable'>
+    //     <th>{date}</th>
+    //     <th>{name}</th>
+    //     <th><Button onClick={() => addOffer(props.interview.interviewId)}> + </Button></th>
+    // </tr>
 
 
-        // <div className='interviewTable'>
-        //     <div>{date}</div>
-        //     <div>{name}</div>
-        //     <div><Button onClick={() => addOffer(props.interview.interviewId)}> + </Button></div>
-        // </div>
+        <div className='interviewTable'>
+            <div>{date}</div>
+            <div>{name}</div>
+            <div><Button onClick={() => offered(name)}> + </Button></div>
+        </div>
     );
 }
 
