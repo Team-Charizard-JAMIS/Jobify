@@ -1,16 +1,16 @@
-const express = require('express');
+// const express = require('express');
+import express, { NextFunction, Request, Response } from 'express';
 const path = require('path');
-const api = require('./routes/api');
-const oAuth = require('./routes/oauth')
+// const oAuth = require('./routes/oauth')
 
 const cors = require('cors')
 
-const applications = require('./routes/applications');
-const interviews = require('./routes/interviews');
-const offers = require('./routes/offers');
+const applications = require('./routes/applications.ts');
+// const interviews = require('./routes/interviews');
+// const offers = require('./routes/offers');
 
 // const https = require('https')
-const bodyParser = require('body-parser')
+// const bodyParser = require('body-parser')
 
 const PORT = 3000;
 const app = express();
@@ -18,36 +18,36 @@ const app = express();
 app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 // Log all rquests as we build
-app.use((req, res, next) => {
+app.use((req: any, res: any, next: any) => {
   console.log(`server/app.js: received request ${req.method} ${req.url}`);
   next();
 });
 
 // Serve the client build
-app.use('/build', express.static(path.resolve(__dirname, '../build')));
+app.use('/', express.static(path.resolve(__dirname, '/client/public')));
 
 // Handle API calls via application router
-app.use('/applications', applications);
+app.use('/api/applications', applications);
 
 // Handle API calls via interviews router
-app.use('/interviews', interviews);
+// app.use('/api/interviews', interviews);
 
 // Handle API calls via offers router
-app.use('/offers', offers);
+// app.use('/api/offers', offers);
 
 // Handle initial oAuth call to register or login user 
-app.use('/oauth', oAuth);
+// app.use('/oauth', oAuth);
 
 // Serve index.html
-app.get('/', (req, res) => {
+app.get('/api', (req: any, res: any) => {
   res.sendFile(path.resolve(__dirname, '../public/', 'index.html'));
 });
 
 // Default 404 handler
-app.use((req, res) => {
+app.use((req: any, res: any) => {
   console.log(`server/app.js: handler not found for request ${req.method} ${req.url}`);
   res
     .status(404)
@@ -57,7 +57,7 @@ app.use((req, res) => {
 });
 
 // Global error handler
-app.use((err, req, res, next) => {
+app.use((err: any, req: any, res: any, next: any) => {
   const defaultErr = {
     message: { err: 'An error occurred' },
     log: 'Express error handler caught unknown middleware error',
@@ -75,6 +75,6 @@ app.listen(PORT, () => {
 
 
 
-app.get('/express_backend', (req, res) => {
-  res.send({ express: 'UPDATED' });
-});
+// app.get('/api', (req, res) => {
+//   res.send({ express: 'UPDATED' });
+// });

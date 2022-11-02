@@ -10,17 +10,18 @@ const applicationController: ApplicationType = {
   create: async (req, res, next) => {
     try {
       //fields to deconstruct from req.body
-      const { appName } = req.body
-      console.log('applicationController');
-      //get id instead of 42 from cookies/session
-      //dont know if this date thing will work lol -- jimmy's work lol
-      const queryString = `INSERT INTO Applications (appName, appDate) VALUES ('${appName}', '${new Date().toISOString().slice(0, 10)}')`; //make sure result is true/false
+      // const { appName } = req.body
+      // console.log('applicationController');
+      // //get id instead of 42 from cookies/session
+      // //dont know if this date thing will work lol -- jimmy's work lol
+      // const queryString = `INSERT INTO Applications (appName, appDate) VALUES ('${appName}', '${new Date().toISOString().slice(0, 10)}')`; //make sure result is true/false
 
-      const result = db.query(queryString)
-        .then((results) => {
-          res.locals.application = results
-          return next();
-        })
+      // const result = db.query(queryString)
+      //   .then((results) => {
+      //     res.locals.application = results
+      //     return next();
+      //   })
+      console.log('hello')
       // const dbRes;
 
     } catch {
