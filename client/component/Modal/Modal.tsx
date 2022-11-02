@@ -12,7 +12,7 @@ const Modal = (props: ModalProps) => {
     const [appName, setAppName] = useState<string>('');
 
     const handleOnChange = (event: any) => {
-        const name: string = event.target;
+        const name: string = event.target.value;
         setAppName(name);
     }
 
@@ -32,10 +32,10 @@ const Modal = (props: ModalProps) => {
                         X
                     </button>
                 </div>
-                <form onSubmit={handleOnSubmit} className="form">
+                <form className="form">
                     <label>
                         Application Name:
-                        <input type="text" name="appName" value={appName} onChange={handleOnChange} />
+                        <input type="text" name="appName" onChange={handleOnChange} />
                     </label>
                 </form>
                 <div className="footer">
@@ -47,7 +47,7 @@ const Modal = (props: ModalProps) => {
                     >
                         Cancel
                     </button>
-                    <button type="submit">Submit</button>
+                    <button onClick={handleOnSubmit}>Submit</button>
                 </div>
             </div>
         </div>

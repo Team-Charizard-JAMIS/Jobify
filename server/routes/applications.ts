@@ -10,9 +10,9 @@ router.get('/', applicationController.getApps, (req: any, res: any) => {
   res.status(200).json(res.locals.applications)
 });
 
-// router.post('/', applicationController.create, (req, res, next) => {
-//   res.status(200).json(res.locals.application)
-// });
+router.post('/', applicationController.create, (req: any, res: any, next: any) => {
+  res.status(200).json(res.locals.applications)
+});
 
 // api router 404 handler
 // router.use((req, res) => {

@@ -12,28 +12,28 @@ import { OfferType } from '../Types/offerTypes';
 const MainContainer = () => {
   const [appName, setAppName] = useState('');
   const [apps, setApps] = useState<Array<App>>([
-    { application_id: 1, appname: 'Spotify', appdate: String(Date.now()), user_id: 1 },
-    { application_id: 2, appname: 'Amazon', appdate: String(Date.now()), user_id: 1 },
-    { application_id: 3, appname: 'Youtube', appdate: String(Date.now()), user_id: 1 },
-    { application_id: 4, appname: 'Spotify', appdate: String(Date.now()), user_id: 2 },
-    { application_id: 5, appname: 'LinkedIn', appdate: String(Date.now()), user_id: 2 },
-    { application_id: 6, appname: 'Chevron', appdate: String(Date.now()), user_id: 2 }
+    // { application_id: 1, appname: 'Spotify', appdate: String(Date.now()), user_id: 1 },
+    // { application_id: 2, appname: 'Amazon', appdate: String(Date.now()), user_id: 1 },
+    // { application_id: 3, appname: 'Youtube', appdate: String(Date.now()), user_id: 1 },
+    // { application_id: 4, appname: 'Spotify', appdate: String(Date.now()), user_id: 2 },
+    // { application_id: 5, appname: 'LinkedIn', appdate: String(Date.now()), user_id: 2 },
+    // { application_id: 6, appname: 'Chevron', appdate: String(Date.now()), user_id: 2 }
   ]);
   const [fetchApps, setFetchApps] = useState<boolean>(true);
 
   const [interviews, setInterviews] = useState<Array<InterviewType>>([
-    { user_id: 1, interviewId: 1, interviewname: 'Spotify', interviewdate: '10/31/2022' },
-    { user_id: 1, interviewId: 2, interviewname: 'Amazon', interviewdate: '10/31/2022' },
-    { user_id: 1, interviewId: 3, interviewname: 'Youtube', interviewdate: '11/1/2022' },
-    { user_id: 2, interviewId: 4, interviewname: 'Spotify', interviewdate: '10/30/2022' },
-    { user_id: 2, interviewId: 5, interviewname: 'LinkedIn', interviewdate: '10/31/2022' },
-    { user_id: 2, interviewId: 6, interviewname: 'Chevron', interviewdate: '11/1/2022' }
+    // { user_id: 1, interviewId: 1, interviewname: 'Spotify', interviewdate: '10/31/2022' },
+    // { user_id: 1, interviewId: 2, interviewname: 'Amazon', interviewdate: '10/31/2022' },
+    // { user_id: 1, interviewId: 3, interviewname: 'Youtube', interviewdate: '11/1/2022' },
+    // { user_id: 2, interviewId: 4, interviewname: 'Spotify', interviewdate: '10/30/2022' },
+    // { user_id: 2, interviewId: 5, interviewname: 'LinkedIn', interviewdate: '10/31/2022' },
+    // { user_id: 2, interviewId: 6, interviewname: 'Chevron', interviewdate: '11/1/2022' }
   ]);
   const [fetchInterviews, setFetchInterviews] = useState<boolean>(true);
 
   const [offers, setOffers] = useState<Array<OfferType>>([
-    { user_id: 1, offerID: 1, offername: 'Spotify', offerdate: '11/1/2022', result: true },
-    { user_id: 2, offerID: 2, offername: 'Chevron', offerdate: '11/2/2022', result: true }
+    // { user_id: 1, offerID: 1, offername: 'Spotify', offerdate: '11/1/2022', result: true },
+    // { user_id: 2, offerID: 2, offername: 'Chevron', offerdate: '11/2/2022', result: true }
   ]);
   const [fetchOffers, setFetchOffers] = useState<boolean>(true);
 
