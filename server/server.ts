@@ -1,7 +1,7 @@
 // const express = require('express');
 import express, { NextFunction, Request, Response } from 'express';
 const path = require('path');
-// const oAuth = require('./routes/oauth')
+const oAuth = require('./routes/oauth')
 
 const cors = require('cors')
 
@@ -39,7 +39,7 @@ app.use('/api/interviews', interviews);
 app.use('/api/offers', offers);
 
 // Handle initial oAuth call to register or login user 
-// app.use('/oauth', oAuth);
+app.use('/oauth', oAuth);
 
 // Serve index.html
 app.get('/api', (req: any, res: any) => {
