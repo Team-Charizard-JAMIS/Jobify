@@ -3,7 +3,7 @@ import cookieParser from 'cookie-parser'
 import applicationController from '../controllers/applicationsController';
 
 const router = express.Router()
-router.use(cookieParser());
+// router.use(cookieParser());
 
 router.get('/', applicationController.getApps, (req, res) => {
   res.status(200).json(res.locals.application)

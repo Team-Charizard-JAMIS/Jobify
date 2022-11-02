@@ -6,7 +6,7 @@ import Offer from '../component/Offer/offer';
 import { App } from '../Types/applicationTypes';
 import { InterviewType } from '../Types/interviewTypes';
 import { OfferType } from '../Types/offerTypes';
-import ApplicationForm from '../component/ApplicationForm/ApplicationForm'
+
 // import Results from './../component/results'
 
 const MainContainer = () => {
@@ -41,6 +41,7 @@ const MainContainer = () => {
     fetch('/applications')
       .then((res) => res.json())
       .then((data) => {
+        console.log('app data', data)
         setApps(data);
       })
       .catch((err) => {
@@ -82,8 +83,8 @@ const MainContainer = () => {
     getOffers();
   }, [fetchOffers])
 
-  const applied = (event: any) => {
-    event.preventDefault();
+  const applied = (name: string) => {
+    const appName = name;
     fetch('/applications', {
       method: 'POST',
       headers: {
@@ -144,8 +145,7 @@ const MainContainer = () => {
     <div>
       <h2>Dashboard</h2>
       <LogIn />
-      {/* <ApplicationForm applied={applied} setAppName={setAppName} /> */}
-      <Application applications={apps} interviewed={interviewed} />
+      <Application applications={apps} interviewed={interviewed} applied={applied} />
       <Interview interviews={interviews} offered={offered} />
       <Offer offers={offers} />
     </div>

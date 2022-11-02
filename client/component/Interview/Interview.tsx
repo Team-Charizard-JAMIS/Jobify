@@ -23,12 +23,22 @@ const Interview = (props: InterviewProps) => {
             <div className='applyContainer'>
                 <h1>In Progress</h1>
             </div>
-            <div className='interviewTable'>
+            <table className='interviewTable'>
+                <tr>
+                    <th>Interview Date</th>
+                    <th>Company Name</th>
+                    <th>Offer?</th>
+                </tr>
+                {rows}
+            </table>
+
+
+            {/* <div className='interviewTable'>
                 <div>Interview Date</div>
                 <div>Company Name</div>
                 <div>Offer?</div>
             </div>
-            {rows}
+            {rows} */}
         </div>
     )
 }

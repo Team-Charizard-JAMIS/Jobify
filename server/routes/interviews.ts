@@ -3,7 +3,7 @@ import cookieParser from 'cookie-parser'
 import interviewController from '../controllers/interviewController';
 
 const router = express.Router();
-router.use(cookieParser());
+// router.use(cookieParser());
 
 
 

@@ -14,11 +14,18 @@ const InterviewBox = (props: InterviewBoxProps) => {
     const addOffer = props.offered;
 
     return (
-        <div className='interviewTable'>
-            <div>{date}</div>
-            <div>{name}</div>
-            <div><Button onClick={() => addOffer(props.interview.interviewId)}> + </Button></div>
-        </div>
+        <tr className='interviewTable'>
+        <th>{date}</th>
+        <th>{name}</th>
+        <th><Button onClick={() => addOffer(props.interview.interviewId)}> + </Button></th>
+    </tr>
+
+
+        // <div className='interviewTable'>
+        //     <div>{date}</div>
+        //     <div>{name}</div>
+        //     <div><Button onClick={() => addOffer(props.interview.interviewId)}> + </Button></div>
+        // </div>
     );
 }
 

@@ -3,7 +3,7 @@ import cookieParser from 'cookie-parser'
 import offerController from '../controllers/offerController';
 
 const router = express.Router();
-router.use(cookieParser());
+// router.use(cookieParser());
 
 router.get('/', offerController.read, (req, res) => {
   res.status(200).json(res.locals.offers);

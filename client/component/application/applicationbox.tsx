@@ -14,11 +14,12 @@ const ApplicationBox = (props: AppBoxProps) => {
     const addInterview = props.interviewed;
 
     return ( 
-        <div className='applicationsTable'>
-            <div>{date}</div>
-            <div>{name}</div>
-            <div><Button onClick={() => addInterview(props.app.id)}> + </Button></div>
-        </div>
+        //previously it was all divs
+        <tr className='applicationsTable'>
+            <th>{date}</th>
+            <th>{name}</th>
+            <th><Button onClick={() => addInterview(props.app.id)}> + </Button></th>
+        </tr>
      );
 }
  
