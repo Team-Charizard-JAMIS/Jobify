@@ -143,8 +143,8 @@ const MainContainer = () => {
   return (
     <div>
       <h2>Dashboard</h2>
-      <LogIn/>
-      <ApplicationForm applied={applied} setAppName={setAppName} />
+      <LogIn />
+      {/* <ApplicationForm applied={applied} setAppName={setAppName} /> */}
       <Application applications={apps} interviewed={interviewed} />
       <Interview interviews={interviews} offered={offered} />
       <Offer offers={offers} />

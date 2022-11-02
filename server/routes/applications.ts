@@ -5,17 +5,12 @@ const router = express.Router();
 const appRouter = Router();
 
 appRouter.get('/', applicationController.getApps, (req, res) => {
-  res.status(200).json(res.locals.apps)
+  res.status(200).json(res.locals.application)
 });
 
 appRouter.post('/', applicationController.create, (req, res, next) => {
-  res.status(200).json(res.locals.app)
+  res.status(200).json(res.locals.application)
 });
-
-appRouter.delete('/', applicationController.delete, (req, res, next) => {
-  res.status(200).json(res.locals.app);
-}
-);
 
 // api router 404 handler
 appRouter.use((req, res) => {
@@ -27,4 +22,4 @@ appRouter.use((req, res) => {
     });
 });
 
-module.exports = appRouter;
+export default appRouter;

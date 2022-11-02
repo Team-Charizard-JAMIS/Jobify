@@ -1,17 +1,16 @@
 import express from 'express'
-const interviewController = require('../controllers/interviewController');
+import interviewController from '../controllers/interviewController';
 
 const interviewRouter = Router();
 
-const router = express.Router();
 
-interviewRouter.get('/', (req, res) => {
+interviewRouter.get('/', interviewController.read, (req, res) => {
   res.status(200).json(res.locals.interviews);
 }
 );
 
-interviewRouter.post('/', (req, res, next) => {
-  res.status(200).json(res.locals.interview);
+interviewRouter.post('/', interviewController.create, (req, res, next) => {
+  res.status(200).json(res.locals.interviews);
 }
 );
 
@@ -25,4 +24,4 @@ router.use((req, res) => {
     });
 });
 
-module.exports = router;
+export default interviewRouter;

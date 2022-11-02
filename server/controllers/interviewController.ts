@@ -17,7 +17,7 @@ const interviewController: InterviewType = {
 
       db.query(queryString)
         .then((results) => {
-          res.locals.interview = results
+          res.locals.interviews = results
           return next();
         })
       // const dbRes;
@@ -37,7 +37,11 @@ const interviewController: InterviewType = {
       //where id = id
 
       const queryString = `SELECT * FROM Interviews WHERE user_id = ${id}`;
-
+      db.query(queryString)
+        .then((results) => {
+          res.locals.interviews = results
+          return next();
+        })
     } catch {
       return next({
         log: null,
@@ -49,4 +53,4 @@ const interviewController: InterviewType = {
 };
 
 
-module.exports = interviewController;
+export default interviewController;

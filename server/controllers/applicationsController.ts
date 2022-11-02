@@ -38,7 +38,11 @@ const applicationController: ApplicationType = {
       //where id = id
 
       const queryString = `SELECT * FROM Applications WHERE user_id = ${id}`;
-
+      db.query(queryString)
+        .then((results) => {
+          res.locals.application = results
+          return next();
+        })
     } catch {
       return next({
         log: null,
@@ -50,4 +54,4 @@ const applicationController: ApplicationType = {
 };
 
 
-module.exports = applicationController;
+export default applicationController;

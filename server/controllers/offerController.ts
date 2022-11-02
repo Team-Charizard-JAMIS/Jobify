@@ -52,4 +52,4 @@ const offerController: OfferType = {
 };
 
 
-module.exports = offerController;
+export default offerController;
