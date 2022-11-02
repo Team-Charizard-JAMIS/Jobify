@@ -1,15 +1,18 @@
 import express from 'express'
+import cookieParser from 'cookie-parser'
 import interviewController from '../controllers/interviewController';
 
-const interviewRouter = Router();
+const router = express.Router();
+router.use(cookieParser());
 
 
-interviewRouter.get('/', interviewController.read, (req, res) => {
+
+router.get('/', interviewController.read, (req, res) => {
   res.status(200).json(res.locals.interviews);
 }
 );
 
-interviewRouter.post('/', interviewController.create, (req, res, next) => {
+router.post('/', interviewController.create, (req, res, next) => {
   res.status(200).json(res.locals.interviews);
 }
 );
@@ -24,4 +27,4 @@ router.use((req, res) => {
     });
 });
 
-export default interviewRouter;
+export default router;

@@ -1,20 +1,22 @@
 import express from 'express';
+import cookieParser from 'cookie-parser'
 import offerController from '../controllers/offerController';
 
-const offersRouter = Router();
+const router = express.Router();
+router.use(cookieParser());
 
-offersRouter.get('/', offerController.read, (req, res) => {
+router.get('/', offerController.read, (req, res) => {
   res.status(200).json(res.locals.offers);
 }
 );
 
-offersRouter.post('/', offerController.create, (req, res) => {
+router.post('/', offerController.create, (req, res) => {
   res.status(200).json(res.locals.offer);
 }
 );
 
 // api router 404 handler
-Router.use((req, res) => {
+router.use((req, res) => {
   console.log(`server/routes/example.js: handler not found for request ${req.method} ${req.url}`);
   res
     .status(404)
@@ -23,4 +25,4 @@ Router.use((req, res) => {
     });
 });
 
-export default offersRouter;
+export default router;

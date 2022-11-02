@@ -1,19 +1,20 @@
 import express from 'express'
-const applicationController = require('../controllers/applicationsController');
+import cookieParser from 'cookie-parser'
+import applicationController from '../controllers/applicationsController';
 
-const router = express.Router();
-const appRouter = Router();
+const router = express.Router()
+router.use(cookieParser());
 
-appRouter.get('/', applicationController.getApps, (req, res) => {
+router.get('/', applicationController.getApps, (req, res) => {
   res.status(200).json(res.locals.application)
 });
 
-appRouter.post('/', applicationController.create, (req, res, next) => {
+router.post('/', applicationController.create, (req, res, next) => {
   res.status(200).json(res.locals.application)
 });
 
 // api router 404 handler
-appRouter.use((req, res) => {
+router.use((req, res) => {
   console.log(`server/routes/example.js: handler not found for request ${req.method} ${req.url}`);
   res
     .status(404)
@@ -22,4 +23,4 @@ appRouter.use((req, res) => {
     });
 });
 
-export default appRouter;
+export default router;
