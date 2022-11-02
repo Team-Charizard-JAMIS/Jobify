@@ -1,11 +1,24 @@
 import React from 'react';
 import MainContainer from './containers/MainContainer';
+import About from './containers/About';
+import Success from './containers/Success';
+import LogIn from './containers/LogIn';
+import {
+  Route,
+  Routes,
+} from 'react-router-dom'
 
 function App() {
+
+
   return (
     <div>
-      <div>Example React App </div>
-      < MainContainer />
+      <Routes>
+        <Route path='/about' element={< About />} />
+        <Route path='/' element={< MainContainer />} />
+        <Route path='/success' element={< Success />} />
+        <Route path='/login' element={< LogIn />}/>
+      </Routes>
     </div>
   );
 };

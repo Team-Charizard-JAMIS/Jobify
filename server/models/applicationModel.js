@@ -18,11 +18,11 @@ mongoose.connect(MONGO_URI, {
 const Schema = mongoose.Schema;
 
 const exampleSchema = new mongoose.Schema({
-  userName: { type: String, required: true, unique: true },
-  exampleTitle: { type: String, required: true },
-  exampleText: { type: String, required: true },
-  upvotes: { type: Number, default: 0 },
-  created: { type: Date, default: Date.now }
+  // userName: { type: String, required: true, unique: true },
+  // exampleTitle: { type: String, required: true },
+  // exampleText: { type: String, required: true },
+  // upvotes: { type: Number, default: 0 },
+  // created: { type: Date, default: Date.now }
 });
 
 const Example = mongoose.model('Example', exampleSchema);

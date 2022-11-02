@@ -1,5 +1,5 @@
 const Router = require('express');
-const exampleController = require('../controllers/exampleController');
+const interviewController = require('../controllers/interviewController');
 
 const router = Router();
 
@@ -11,19 +11,19 @@ router.use((req, res, next) => {
 });
 
 router.get('/', (req, res, next) => {
-    console.log(`server/routes/example.js.router.get('/'): received request ${req.method} ${req.url}`);
-    next();
-  },
-  exampleController.getAllExamples,
+  console.log(`server/routes/example.js.router.get('/'): received request ${req.method} ${req.url}`);
+  next();
+},
+  interviewController.getAllExamples,
   (req, res) => {
     res.status(200).json(res.locals.examples);
   }
 );
 
 router.put('/', (req, res, next) => {
-    console.log(`server/routes/example.js.router.put('/'): received request ${req.method} ${req.url}`);
-    next();
-  },
+  console.log(`server/routes/example.js.router.put('/'): received request ${req.method} ${req.url}`);
+  next();
+},
   exampleController.createExample,
   (req, res) => {
     res.status(200).json(res.locals.newExample);
