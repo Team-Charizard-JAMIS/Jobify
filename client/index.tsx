@@ -6,7 +6,6 @@ import { BrowserRouter } from 'react-router-dom'
 
 render(
   <BrowserRouter>
-    <Navbar />
     <App />
   </BrowserRouter>
 
