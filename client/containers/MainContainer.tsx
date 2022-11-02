@@ -9,14 +9,9 @@ import { OfferType } from '../Types/offerTypes';
 import { getApplicants } from '../controllers/api'
 // import Results from './../component/results'
 
-<<<<<<< HEAD
-const MainContainer = () => {
-  const [appName, setAppName] = useState('');
-=======
 const MainContainer = (props:any) => {
   let loggedIn =  props.loggedIn
-
->>>>>>> matthew
+  const [appName, setAppName] = useState('');
   const [apps, setApps] = useState<Array<App>>([
     { id: 1, appName: 'Spotify', appDate: String(Date.now()), user_id: 1 },
     { id: 2, appName: 'Amazon', appDate: String(Date.now()), user_id: 1 },
@@ -145,16 +140,6 @@ const MainContainer = (props:any) => {
   }
 
   return (
-<<<<<<< HEAD
-    <div>
-      <h2>Dashboard</h2>
-      <button onClick={(e) => getApplicants()}> Hello</button >
-      <LogIn />
-      <Application applications={apps} interviewed={interviewed} applied={applied} />
-      <Interview interviews={interviews} offered={offered} />
-      <Offer offers={offers} />
-    </div >
-=======
     (!loggedIn) ? 
       <LogIn 
         handleSubmit={props.handleSubmit} 
@@ -162,13 +147,12 @@ const MainContainer = (props:any) => {
         setHasAccount={props.setHasAccount} 
       /> :        
       <div>
-        <h2>Dashboard</h2>
-        <ApplicationForm />
-        <Application applications={apps} interviewed={interviewed} />
-        <Interview interviews={interviews} offered={offered} />
-        <Offer offers={offers} />
-      </div>  
->>>>>>> matthew
+      <h2>Dashboard</h2>
+      <button onClick={(e) => getApplicants()}> Hello</button >
+      <Application applications={apps} interviewed={interviewed} applied={applied} />
+      <Interview interviews={interviews} offered={offered} />
+      <Offer offers={offers} />
+    </div > 
   )
 };
 
