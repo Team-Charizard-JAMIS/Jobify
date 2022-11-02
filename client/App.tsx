@@ -6,7 +6,8 @@ import Navbar from './Navbar';
 import {
   Route,
   Routes,
-} from 'react-router-dom'
+} from 'react-router-dom';
+import axios from 'axios';
 
 const App: React.FC = () => {
 
@@ -21,6 +22,7 @@ const App: React.FC = () => {
   //TODO: lots of rework needed. need a whole path for 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     const data = new FormData(event.currentTarget);
     const creds = {
         email: data.get('email'),
@@ -30,36 +32,31 @@ const App: React.FC = () => {
     if (hasAccount){
       console.log('logging in')
       setLoggedIn(true)
+      // axios
+      // //TODO change to real route
+      // .post('/userAPI/login', creds)
+      // .then((res) => {
+      //   if (res.status === 200) {
+      //     //TODO needs something to set info
+      //     setLoggedIn(true)
+      //   }
+      // })
+      // .catch((err) => {
+      //   console.log(err);
+      //   if (err.response.status === 401) {
+      //     alert(
+      //       'Error: Invalid email address and/or password. Please try again.'
+      //     );
+      //   } else {
+      //     alert(`status: ${err.response.status} , ${err.response.data}`);
+      //   }
+      // });
     }
     else {
       console.log('this will register account')
     }
   };
 
-      // function logMeIn(e: React.SyntheticEvent) {
-    //     e.preventDefault();
-    //     axios
-    //       .post('/userAPI/login', {
-    //         email,
-    //         plainPassword: password,
-    //       })
-    //       .then((res) => {
-    //         if (res.status === 200) {
-    //           setUser(res.data);
-    //           navigate('/home');
-    //         }
-    //       })
-    //       .catch((err) => {
-    //         console.log(err);
-    //         if (err.response.status === 401) {
-    //           setError(
-    //             'Error: Invalid email address and/or password. Please try again.'
-    //           );
-    //         } else {
-    //           setError(`status: ${err.response.status} , ${err.response.data}`);
-    //         }
-    //       });
-    //   }
 
   return (
     <div>
