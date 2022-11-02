@@ -14,10 +14,11 @@ const interviewController: InterviewType = {
       const { appName } = req.body
 
       // //get id instead of 42 from cookies/session
-      const queryString = `INSERT INTO Interviews ( interviewName, interviewDate ) VALUES ('${appName}', '${new Date().toISOString().slice(0, 10)}')`; //make sure result is true/false
+      const queryString = `INSERT INTO Interviews ( interviewname, interviewdate, user_id ) VALUES ('${appName}', '${new Date().toISOString().slice(0, 10)}', 1)`; //make sure result is true/false
 
       db.query(queryString)
         .then((results: any) => {
+          console.log('results', results)
           res.locals.interviews = results
           return next();
         })

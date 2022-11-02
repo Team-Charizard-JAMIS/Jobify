@@ -5,7 +5,7 @@ import './interviewStyles.css';
 
 interface InterviewProps {
     interviews: Array<InterviewType>,
-    offered: (interviewID: number) => void
+    offered: (interviewName: string) => void
 }
 
 const Interview = (props: InterviewProps) => {
@@ -23,7 +23,7 @@ const Interview = (props: InterviewProps) => {
             <div className='applyContainer'>
                 <h1>In Progress</h1>
             </div>
-            <table className='interviewTable'>
+            {/* <table className='interviewTable'>
                 <tbody>
                 <tr>
                     <th>Interview Date</th>
@@ -32,15 +32,15 @@ const Interview = (props: InterviewProps) => {
                 </tr>
                 {rows}
                 </tbody>
-            </table>
+            </table> */}
 
 
-            {/* <div className='interviewTable'>
+             <div className='interviewTable'>
                 <div>Interview Date</div>
                 <div>Company Name</div>
                 <div>Offer?</div>
             </div>
-            {rows} */}
+            {rows}
         </div>
     )
 }

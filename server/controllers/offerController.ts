@@ -13,14 +13,15 @@ const offerController: OfferType = {
   create: async (req: any, res: any, next: any) => {
     try {
       //fields to deconstruct from req.body
-      const { offerName, offerDate, result } = req.body
+      const { interviewName } = req.body
+
 
       //get id instead of 42 from cookies/session
-      const queryString = `INSERT INTO Offers (user_id, offerName, offerDate, result) VALUES ('42, ${offerName}', '${new Date().toISOString().slice(0, 10)}', ${result})`; //make sure result is true/false
+      const queryString = `INSERT INTO Offers (user_id, offername, offerdate, result) VALUES (42, '${interviewName}', '${new Date().toISOString().slice(0, 10)}', ${true})`; //make sure result is true/false
 
       db.query(queryString)
         .then((results: any) => {
-          res.locals.offer = results
+          res.locals.offers = results
           return next();
         })
       // const dbRes;

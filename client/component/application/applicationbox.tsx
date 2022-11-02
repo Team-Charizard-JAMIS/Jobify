@@ -11,14 +11,14 @@ type AppBoxProps = {
 const ApplicationBox = (props: AppBoxProps) => {
     const name = props.app.appname;
     const date = props.app.appdate;
-    const addInterview = props.interviewed;
+    const interviewed = props.interviewed;
 
     return (
         //previously it was all divs
         <tr className='applicationsTable'>
             <th>{date}</th>
             <th>{name}</th>
-            <th><Button onClick={() => addInterview(name)}> + </Button></th>
+            <th><Button onClick={() => interviewed(name)}> + </Button></th>
         </tr>
     );
 }

@@ -115,14 +115,14 @@ const MainContainer = () => {
       })
   }
 
-  const interviewed = (appName: number) => {
-    console.log('appID', appID)
-    fetch('/api/interview', {
+  const interviewed = (appName: string) => {
+    console.log('appID', appName)
+    fetch('/api/interviews', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ appID })
+      body: JSON.stringify({ appName })
     })
       .then(res => res.json())
       .then(data => {
@@ -135,13 +135,13 @@ const MainContainer = () => {
       })
   }
 
-  const offered = (interviewID: number) => {
-    fetch('/api/offer', {
+  const offered = (interviewName: string) => {
+    fetch('/api/offers', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ interviewID })
+      body: JSON.stringify({ interviewName })
     })
       .then(res => res.json())
       .then(data => {
