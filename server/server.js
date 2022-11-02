@@ -3,16 +3,22 @@ const path = require('path');
 const api = require('./routes/api');
 const oAuth = require('./routes/oauth')
 
+const cors = require('cors')
 
 const applications = require('./routes/applications');
 const interviews = require('./routes/interviews');
 const offers = require('./routes/offers');
 
-const PORT = process.env.EXPRESS_PORT || 3000;
+// const https = require('https')
+const bodyParser = require('body-parser')
+
+const PORT = 3000;
 const app = express();
 
+app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Log all rquests as we build
 app.use((req, res, next) => {
@@ -65,4 +71,10 @@ app.use((err, req, res, next) => {
 // Fire it up
 app.listen(PORT, () => {
   console.log(`Express Node server listening on ${PORT}`);
+});
+
+
+
+app.get('/express_backend', (req, res) => {
+  res.send({ express: 'UPDATED' });
 });

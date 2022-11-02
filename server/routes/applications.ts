@@ -6,7 +6,8 @@ const router = express.Router()
 // router.use(cookieParser());
 
 router.get('/', applicationController.getApps, (req, res) => {
-  res.status(200).json(res.locals.application)
+  // res.status(200).json(res.locals.applications)
+  res.json(200)
 });
 
 router.post('/', applicationController.create, (req, res, next) => {

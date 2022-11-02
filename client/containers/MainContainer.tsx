@@ -6,7 +6,7 @@ import Offer from '../component/Offer/offer';
 import { App } from '../Types/applicationTypes';
 import { InterviewType } from '../Types/interviewTypes';
 import { OfferType } from '../Types/offerTypes';
-
+import { getApplicants } from '../controllers/api'
 // import Results from './../component/results'
 
 const MainContainer = () => {
@@ -37,17 +37,14 @@ const MainContainer = () => {
   ]);
   const [fetchOffers, setFetchOffers] = useState<boolean>(true);
 
-  const getApplications = () => {
-    fetch('/applications')
-      .then((res) => res.json())
-      .then((data) => {
-        console.log('app data', data)
-        setApps(data);
-      })
-      .catch((err) => {
-        console.log('Frontend Applications get error', err);
-      });
-  }//end of getApplications
+  // const getApplications = async (): Promise<App[]> => {
+  //   try {
+  //     const response = await axios.get('http://localhost:3000/applications')
+  //   }
+  //   catch (error: any) {
+  //     return error;
+  //   }
+  // };
 
   const getInterviews = () => {
     fetch('/interviews')
@@ -71,17 +68,17 @@ const MainContainer = () => {
       });
   }//end of getOffers
 
-  useEffect(() => {
-    getApplications();
-  }, [fetchApps])
+  // useEffect(() => {
+  //   getApplications();
+  // }, [fetchApps])
 
-  useEffect(() => {
-    getInterviews();
-  }, [fetchInterviews])
+  // useEffect(() => {
+  //   getInterviews();
+  // }, [fetchInterviews])
 
-  useEffect(() => {
-    getOffers();
-  }, [fetchOffers])
+  // useEffect(() => {
+  //   getOffers();
+  // }, [fetchOffers])
 
   const applied = (name: string) => {
     const appName = name;
@@ -144,11 +141,12 @@ const MainContainer = () => {
   return (
     <div>
       <h2>Dashboard</h2>
+      <button onClick={(e) => getApplicants()}> Hello</button >
       <LogIn />
       <Application applications={apps} interviewed={interviewed} applied={applied} />
       <Interview interviews={interviews} offered={offered} />
       <Offer offers={offers} />
-    </div>
+    </div >
   )
 };
 
