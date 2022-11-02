@@ -8,10 +8,10 @@ const PG_URI = 'postgres://jycbtjhp:WgsDFWRPcgMciwbAoAdjO8lNEacKauFG@heffalump.d
 // CREATE TABLE Offers (offer_id SERIAL, offerName VARCHAR(50), offerDate DATE, user_id INT, FOREIGN KEY (user_id) REFERENCES Users(user_id))
 
 const pool = new Pool({
-    connectionString: 'postgres://jycbtjhp:WgsDFWRPcgMciwbAoAdjO8lNEacKauFG@heffalump.db.elephantsql.com/jycbtjhp',
+    connectionString: PG_URI
 })
 
-await client.connect()
+// await client.connect()
 
 module.exports = {
     query: (text, params, callback) => {
