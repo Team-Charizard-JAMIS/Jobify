@@ -51,7 +51,6 @@ export const LogIn = (props: any) => {
                 >
                     {(hasAccount)? <a>Log in</a> : <a>Sign up</a>}
                 </Button>
-                <Button onClick={props.dummyLogIn}>Dummy Button</Button>
             </Box>
             <div>
                 <div id="g_id_onload"
